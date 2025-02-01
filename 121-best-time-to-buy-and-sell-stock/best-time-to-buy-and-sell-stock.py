@@ -4,14 +4,26 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-
-        minprice = prices[0]
-        maxp = 0
+       
+        minprices = prices[0]
+        maxi = 0
 
         for i in range(len(prices)):
-            minprice = min(minprice, prices[i])
-            p = prices[i]-minprice
-            maxp = max(maxp,p)
+            minprices = min(prices[i], minprices)
+            p = prices[i]-minprices
+            maxi = max(maxi,p)
+        
+        return maxi
 
-        return maxp
+
+
+        # minprice = prices[0]
+        # maxp = 0
+
+        # for i in range(len(prices)):
+        #     minprice = min(minprice, prices[i])
+        #     p = prices[i]-minprice
+        #     maxp = max(maxp,p)
+
+        # return maxp
         
