@@ -36,7 +36,7 @@ class Solution(object):
             if majority2 == nums[i]:
                 votes2+=1
         
-        mini = (n/3)+1
+        mini = (n//3)+1
         if votes1>=mini:
             result.append(majority1)
         if votes2>=mini:
