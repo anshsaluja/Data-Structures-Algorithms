@@ -9,21 +9,9 @@ class Solution(object):
         maxi = 0
 
         for i in range(len(prices)):
-            minprices = min(prices[i], minprices)
-            p = prices[i]-minprices
-            maxi = max(maxi,p)
+            minprices = min(minprices,prices[i])
+            profit = prices[i]-minprices
+            maxi = max(maxi,profit)
+
         
         return maxi
-
-
-
-        # minprice = prices[0]
-        # maxp = 0
-
-        # for i in range(len(prices)):
-        #     minprice = min(minprice, prices[i])
-        #     p = prices[i]-minprice
-        #     maxp = max(maxp,p)
-
-        # return maxp
-        
