@@ -6,13 +6,12 @@ class Solution(object):
         :rtype: bool
         """
 
+
         if not matrix or not matrix[0]:
             return False
-
-        
+    
         row = len(matrix)
         col = len(matrix[0])
-
 
         position = -1
 
@@ -20,10 +19,10 @@ class Solution(object):
             if matrix[i][0]<=target<=matrix[i][col-1]:
                 position = i
                 break
-        
+
         if position == -1:
             return False
-
+        
         left = 0
         right = col-1
 
@@ -31,9 +30,12 @@ class Solution(object):
             mid = left + (right-left)//2
             if matrix[position][mid] == target:
                 return True
-            elif matrix[position][mid] < target:
+            elif matrix[position][mid]<target:
                 left = mid+1
             else:
-                right= mid-1
+                right = mid -1
         
+
         return False
+
+       
