@@ -5,25 +5,26 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        hashmap_s = {}
-        hashmap_t = {}
+        if len(s)!=len(t):
+            return False
+        hashmap = {}
 
-        for i in range(len(s)):
-            if s[i] in hashmap_s:
-                hashmap_s[s[i]]+=1
+        for ch in s:
+            if ch in hashmap:
+                hashmap[ch]+=1
             else:
-                hashmap_s[s[i]]=1
-        
-        for i in range(len(t)):
-            if t[i] in hashmap_t:
-                hashmap_t[t[i]]+=1
+                hashmap[ch]=1
+
+        for ch in t:
+            if ch not in hashmap:
+                return False
             else:
-                hashmap_t[t[i]]=1
+                hashmap[ch]-=1
+                if hashmap[ch]<0:
+                    return False
+        return True
+
         
-        if hashmap_s == hashmap_t:
-            return True
-        
-        return False
         
 
                 
