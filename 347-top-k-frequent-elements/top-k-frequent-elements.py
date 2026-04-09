@@ -5,31 +5,36 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        hash = {}
+
+        map = {}
 
         for num in nums:
-            if num in hash:
-                hash[num]+=1
+            if num in map:
+                map[num]+=1
             else:
-                hash[num]=1
-
+                map[num]=1
+        
         bucket = []
         for i in range(len(nums)+1):
             bucket.append([])
-        
-        for num in hash: 
-            count = hash[num]
-            bucket[count].append(num)
 
-        i = len(nums)
+        for num in map:
+            count = map[num]
+            bucket[count].append(num)
+        
         result = []
+        i = len(nums)
 
         while i>0:
             for num in bucket[i]:
                 result.append(num)
 
-                if len(result) == k:
+                if len(result)==k:
                     return result
+            
             i-=1
+
+
         
+       
         
