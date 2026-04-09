@@ -6,15 +6,15 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        num_map = {}
+        hashmap = {}
 
         for i in range(len(nums)):
-            num = nums[i]
-            complement = target-num
-            if complement in num_map:
-                return [num_map[complement],i]
-            num_map[num] = i
+            difference = target - nums[i]
 
-        return []
+            if difference in hashmap:
+                return [hashmap[difference], i]
+            
+            hashmap[nums[i]] = i
+        
         
         
