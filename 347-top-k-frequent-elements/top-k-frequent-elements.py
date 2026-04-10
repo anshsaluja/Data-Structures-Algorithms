@@ -14,14 +14,15 @@ class Solution(object):
             else:
                 map[num]=1
         
+
         bucket = []
         for i in range(len(nums)+1):
             bucket.append([])
 
         for num in map:
-            count = map[num]
-            bucket[count].append(num)
-        
+            value = map[num]
+            bucket[value].append(num)
+
         result = []
         i = len(nums)
 
@@ -31,10 +32,6 @@ class Solution(object):
 
                 if len(result)==k:
                     return result
-            
             i-=1
 
-
-        
-       
         
