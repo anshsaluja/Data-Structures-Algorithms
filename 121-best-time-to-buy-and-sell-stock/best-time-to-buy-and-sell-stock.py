@@ -5,13 +5,19 @@ class Solution(object):
         :rtype: int
         """
        
-        minprices = prices[0]
-        maxi = 0
+        left = 0
+        right = 1
+        max_profit = 0
 
-        for i in range(len(prices)):
-            minprices = min(minprices,prices[i])
-            profit = prices[i]-minprices
-            maxi = max(maxi,profit)
+        while right < len(prices):
 
+            if prices[right]>prices[left]:
+                profit = prices[right] - prices[left]
+                max_profit = max(max_profit, profit)
+            
+
+            else:
+                left = right
+            right+=1
         
-        return maxi
+        return max_profit
