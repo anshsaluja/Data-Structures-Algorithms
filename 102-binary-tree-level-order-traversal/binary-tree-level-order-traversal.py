@@ -10,11 +10,12 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: List[List[int]]
         """
+        
         if not root:
             return []
-        
-        queue = deque([root])
+
         result = []
+        queue = deque([root])
 
         while queue:
             size = len(queue)
@@ -26,10 +27,14 @@ class Solution(object):
 
                 if node.left:
                     queue.append(node.left)
+                
                 if node.right:
                     queue.append(node.right)
-                
+            
             result.append(level)
+        
         return result
+
+            
         
         
